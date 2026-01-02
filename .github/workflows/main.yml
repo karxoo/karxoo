@@ -1,26 +1,24 @@
-name: Generate Datas
+name: Generate Snake
 
 on:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
   build:
-    name: Jobs to update datas
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Generate snake
-        uses: Platane/snk@master
+      - name: Generate Snake SVG
+        uses: Platane/snk@v3
         with:
           github_user_name: karxoo
-          svg_out_path: dist/github-contribution-grid-snake.svg
+          outputs: |
+            dist/github-contribution-grid-snake.svg?color_snake=%23800080&color_dots=%23ebedf0,%23c084fc,%23a855f7,%239333ea,%236b21a8
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=%23800080&color_dots=%232c2c2c,%236b21a8,%239333ea,%23a855f7,%23c084fc
 
-      - name: Push to output branch
-        uses: crazy-max/ghaction-github-pages@v2.1.3
+      - name: Push Snake to Output Branch
+        uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: output
           build_dir: dist
