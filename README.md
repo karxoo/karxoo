@@ -1,23 +1,26 @@
-## Hi there 👋
+## Hi there, I'm karxoo 👋
 
-<!--
-**karxoo/karxoo** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+### 🐍 Contribution
+<p align="left">
+  <img src="https://github.com/karxoo/karxoo/blob/output/github-contribution-grid-snake.svg" alt="Snake Animation" />
+</p>
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### ⚡ Quick Links
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/RUN_APP-2c2c2c?style=for-the-badge"></a><a href="#"><img src="https://img.shields.io/badge/-%230081CB?style=for-the-badge&logo=playstation&logoColor=white"></a>
+  &nbsp;
+  <a href="#"><img src="https://img.shields.io/badge/TIPS-2c2c2c?style=for-the-badge"></a><a href="#"><img src="https://img.shields.io/badge/-%23FFCD00?style=for-the-badge&logo=lighthouse&logoColor=white"></a>
+  &nbsp;
+  <a href="#"><img src="https://img.shields.io/badge/DEPLOY-2c2c2c?style=for-the-badge"></a><a href="#"><img src="https://img.shields.io/badge/-%2399CC00?style=for-the-badge&logo=rocket&logoColor=white"></a>
+  &nbsp;
+  <a href="#"><img src="https://img.shields.io/badge/OTHERS-2c2c2c?style=for-the-badge"></a><a href="#"><img src="https://img.shields.io/badge/-%23800080?style=for-the-badge&logo=buildkite&logoColor=white"></a>
+</p>
 
-## 🐍 Contribution Snake
+---
 
-![Contribution Snake](https://github.com/karxoo/karxoo/raw/output/github-contribution-grid-snake.svg)
+### 📊 My Stats
+![karxoo's Stats](https://github-readme-stats.vercel.app/api?username=karxoo&show_icons=true&theme=radical&cache_seconds=1800)
 
-
-
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=karxoo&layout=compact&theme=radical&cache_seconds=1800)
