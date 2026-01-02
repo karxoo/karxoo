@@ -1,7 +1,7 @@
 ## Hi there, I'm karxoo 👋
 
 ### 🐍 Contribution
-<p align="left">
+<p align="center">
   <img src="https://github.com/karxoo/karxoo/blob/output/github-contribution-grid-snake.svg" alt="Snake Animation" />
 </p>
 
