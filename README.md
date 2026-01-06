@@ -70,7 +70,7 @@ I’m a **Software Developer** who specializes in crafting sleek, bug-free (most
 ---
 ### 🔥 Streak: Don't break the chain!
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=karxoo&theme=catppuccin_mocha&hide_border=true" width="91%" />
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=karxoo&theme=catppuccin_mocha&hide_border=true" width="91%" />
 </p>
 
 ---
