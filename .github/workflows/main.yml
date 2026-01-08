@@ -27,26 +27,13 @@ jobs:
             dist/github-contribution-grid-snake.svg?color_snake=%23cc7a67&color_dots=%23e5e7eb,%23d4b483,%23c1666b,%23435058,%2348392a
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=%23cc7a67&color_dots=%231c1c1c,%23d4b483,%23c1666b,%23435058,%2348392a
 
-      # 2. Streak SVGs (Fixed URL & Domain)
+      # 2. Streak SVGs (Fixed URL & Green Border)
       - name: Generate Streak SVGs
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           curl -o dist/streak-stats.svg "https://streak-stats.demolab.com/?user=karxoo&background=e5e7eb&border=2d6a4f&stroke=cc7a67&ring=cc7a67&fire=cc7a67&currStreakNum=4b5563&sideNums=4b5563&currStreakLabel=cc7a67&sideLabels=6b7280&dates=9ca3af&hide_border=false"
           curl -o dist/streak-stats-dark.svg "https://streak-stats.demolab.com/?user=karxoo&theme=tokyonight&background=1a1b27&border=2d6a4f&ring=2d6a4f&fire=40916c&currStreakNum=70e000&sideNums=b7efc5&currStreakLabel=2d6a4f&hide_border=false"
-
-      # NEW: Cache Buster Step
-      - name: Update README cache version and timestamp
-        run: |
-          TS=$(date +%Y%m%d%H%M)
-          TIMENOW=$(date +'%b %d, %I:%M %p')
-          
-          # This updated regex finds "Last Updated: " followed by ANY characters 
-          # until the end of the line or the closing tag.
-          sed -i "s/Last Updated: .*/Last Updated: ${TIMENOW}<\/sub>/g" README.md
-          
-          # Updates the cache-buster version numbers
-          sed -i "s/\?v=[0-9]*/?v=${TS}/g" README.md
 
       # 3. Stats (Light & Dark)
       - name: Generate Main Stats SVG
@@ -82,7 +69,28 @@ jobs:
           path: dist/top-langs-dark.svg
           token: ${{ secrets.GH_TOKEN }}
 
-      # 5. Push
+      # 5. Cache Buster & Timestamp Step
+      - name: Update README cache version and timestamp
+        run: |
+          TS=$(date +%Y%m%d%H%M)
+          TIMENOW=$(date +'%b %d, %I:%M %p')
+          
+          # Fix: Use a safer regex to replace only the content inside <sub>
+          sed -i "s/Last Updated: [^<]*/Last Updated: ${TIMENOW}/g" README.md
+          
+          # Updates the cache-buster version numbers
+          sed -i "s/\?v=[0-9]*/?v=${TS}/g" README.md
+
+      # 6. CRITICAL: Commit the README changes back to main branch
+      - name: Commit README changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git commit -m "chore: update profile metrics and timestamp" || echo "No changes to commit"
+          git push origin main
+
+      # 7. Push Assets to Output Branch
       - name: Push to Output Branch
         uses: crazy-max/ghaction-github-pages@v3
         with:
