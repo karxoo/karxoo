@@ -12,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # 1. Generate the Snake
+      # 1. Generate the Snake (Using your custom colors)
       - name: Generate Snake SVG
         uses: Platane/snk@v3
         with:
@@ -21,18 +21,13 @@ jobs:
             dist/github-contribution-grid-snake.svg?color_snake=%23cc7a67&color_dots=%23e5e7eb,%23d4b483,%23c1666b,%23435058,%2348392a
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=%23cc7a67&color_dots=%231c1c1c,%23d4b483,%23c1666b,%23435058,%2348392a
 
-      # 2. Generate the Streak Stats (Fixed Repo Path)
+      # 2. Generate the Streak Stats (Fixed Docker Syntax)
       - name: Generate Streak SVG
         uses: DenverCoder1/github-readme-streak-stats@main
         with:
-          github_user: karxoo
-          theme: catppuccin_mocha
-          hide_border: true
-          background: 1e1e2e
-          output_base: dist
-          output_filename: streak-stats.svg
+          args: --user=karxoo --theme=catppuccin_mocha --hide_border=true --background=1e1e2e --output=dist/streak-stats.svg
 
-      # 3. Generate Main GitHub Stats
+      # 3. Generate Main GitHub Stats (Catppuccin Mocha)
       - name: Generate Main Stats SVG
         uses: readme-tools/github-readme-stats-action@v1
         with:
@@ -41,7 +36,7 @@ jobs:
           path: dist/github-stats.svg
           token: ${{ secrets.GH_TOKEN }}
 
-      # 4. Generate Top Languages
+      # 4. Generate Top Languages (Catppuccin Mocha)
       - name: Generate Top Langs SVG
         uses: readme-tools/github-readme-stats-action@v1
         with:
