@@ -55,22 +55,36 @@ I’m a **Software Developer** who specializes in crafting sleek, bug-free (most
 </div>
 
 ---
+
 ### 📈 Proof of Work
 <table style="border: none; border-collapse: collapse;" width="100%">
   <tr style="border: none;">
     <td width="48%" align="center" style="border: none;">
-      <img src="https://raw.githubusercontent.com/karxoo/karxoo/output/github-stats.svg" alt="karxoo's Stats" width="100%" />
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/karxoo/karxoo/output/github-stats-dark.svg">
+        <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/karxoo/karxoo/output/github-stats.svg">
+        <img src="https://raw.githubusercontent.com/karxoo/karxoo/output/github-stats.svg" alt="karxoo's Stats" width="100%" />
+      </picture>
     </td>
     <td width="52%" align="center" style="border: none;">
-      <img src="https://raw.githubusercontent.com/karxoo/karxoo/output/top-langs.svg" alt="Top Langs" width="100%" />
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/karxoo/karxoo/output/top-langs-dark.svg">
+        <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/karxoo/karxoo/output/top-langs.svg">
+        <img src="https://raw.githubusercontent.com/karxoo/karxoo/output/top-langs.svg" alt="Top Langs" width="100%" />
+      </picture>
     </td>
   </tr>
 </table>
 
 ---
+
 ### 🔥 Streak: Don't break the chain!
 <p align="center">
-  <img src="https://raw.githubusercontent.com/karxoo/karxoo/output/streak-stats.svg" alt="GitHub Streak" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/karxoo/karxoo/output/streak-stats-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/karxoo/karxoo/output/streak-stats.svg">
+    <img src="https://raw.githubusercontent.com/karxoo/karxoo/output/streak-stats.svg" alt="GitHub Streak" />
+  </picture>
 </p>
 
 ---
