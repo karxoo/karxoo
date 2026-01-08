@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # Ensure the output directory exists
+      # 0. Ensure the output directory exists
       - name: Create dist directory
         run: mkdir -p dist
 
@@ -28,11 +28,10 @@ jobs:
             dist/github-contribution-grid-snake.svg?color_snake=%23cc7a67&color_dots=%23e5e7eb,%23d4b483,%23c1666b,%23435058,%2348392a
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=%23cc7a67&color_dots=%231c1c1c,%23d4b483,%23c1666b,%23435058,%2348392a
 
-      # 2. Generate the Streak Stats (Using Absolute Workspace Path)
+      # 2. Generate Streak Stats (Using cURL - No Docker errors!)
       - name: Generate Streak SVG
-        uses: DenverCoder1/github-readme-streak-stats@main
-        with:
-          args: --user=karxoo --theme=catppuccin_mocha --hide_border=true --background=1e1e2e --output=${{ github.workspace }}/dist/streak-stats.svg
+        run: |
+          curl -o dist/streak-stats.svg "https://github-readme-streak-stats.herokuapp.com/?user=karxoo&theme=catppuccin_mocha&hide_border=true&background=1e1e2e"
 
       # 3. Generate Main GitHub Stats
       - name: Generate Main Stats SVG
