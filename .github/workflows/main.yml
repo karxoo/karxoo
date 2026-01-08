@@ -30,11 +30,11 @@ jobs:
       # 2. Streak SVGs (Fixed URL & Green Border)
       - name: Generate Streak SVGs
         run: |
-          # Light Mode - hide_border=true
-          curl -o dist/streak-stats.svg "https://github-readme-streak-stats.herokuapp.com/?user=karxoo&background=e5e7eb&stroke=cc7a67&ring=cc7a67&fire=cc7a67&currStreakNum=4b5563&sideNums=4b5563&currStreakLabel=cc7a67&sideLabels=6b7280&dates=9ca3af&hide_border=true"
+          # Light Mode - No border
+          curl -o dist/streak-stats.svg "https://github-readme-streak-stats-eight.vercel.app/?user=karxoo&background=e5e7eb&stroke=cc7a67&ring=cc7a67&fire=cc7a67&currStreakNum=4b5563&sideNums=4b5563&currStreakLabel=cc7a67&sideLabels=6b7280&dates=9ca3af&hide_border=true&cache=false"
           
-          # Dark Mode - hide_border=false with green border
-          curl -o dist/streak-stats-dark.svg "https://github-readme-streak-stats.herokuapp.com/?user=karxoo&theme=tokyonight&background=1a1b27&border=2d6a4f&ring=2d6a4f&fire=40916c&currStreakNum=70e000&sideNums=b7efc5&currStreakLabel=2d6a4f&hide_border=false"
+          # Dark Mode - Green border (2d6a4f)
+          curl -o dist/streak-stats-dark.svg "https://github-readme-streak-stats-eight.vercel.app/?user=karxoo&theme=tokyonight&background=1a1b27&border=2d6a4f&ring=2d6a4f&fire=40916c&currStreakNum=70e000&sideNums=b7efc5&currStreakLabel=2d6a4f&hide_border=false&cache=false"
       
       # 3. Stats (Light & Dark)
       - name: Generate Main Stats SVG
