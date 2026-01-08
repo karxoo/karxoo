@@ -42,12 +42,12 @@ jobs:
           path: dist/github-stats.svg
           token: ${{ secrets.GH_TOKEN }}
           
-      # 4. Generate Top Languages
+      # 4. Generate Top Languages (Sandy Silver Edition)
       - name: Generate Top Langs SVG
         uses: readme-tools/github-readme-stats-action@v1
         with:
           card: top-langs
-          options: username=karxoo&layout=compact&theme=catppuccin_mocha&hide_border=true&langs_count=5
+          options: username=karxoo&layout=compact&title_color=cc7a67&text_color=4b5563&bg_color=e5e7eb&border_color=d1d5db&hide_border=false&langs_count=5&hide=html,css
           path: dist/top-langs.svg
           token: ${{ secrets.GH_TOKEN }}
           
