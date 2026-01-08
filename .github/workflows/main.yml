@@ -27,15 +27,16 @@ jobs:
             dist/github-contribution-grid-snake.svg?color_snake=%23cc7a67&color_dots=%23e5e7eb,%23d4b483,%23c1666b,%23435058,%2348392a
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=%23cc7a67&color_dots=%231c1c1c,%23d4b483,%23c1666b,%23435058,%2348392a
 
-      # 2. Streak SVGs (Light & Dark)
+      # 2. Streak SVGs (Fixed URL & Domain)
       - name: Generate Streak SVGs
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          # Light
-          curl -o dist/streak-stats.svg "https://github-readme-streak-stats.herokuapp.com/?user=karxoo&background=e5e7eb&border=d1d5db&stroke=cc7a67&ring=cc7a67&fire=cc7a67&currStreakNum=4b5563&sideNums=4b5563&currStreakLabel=cc7a67&sideLabels=6b7280&dates=9ca3af&hide_border=false&token=${GH_TOKEN}"
-          # Dark
-          curl -o dist/streak-stats-dark.svg "https://github-readme-streak-stats.herokuapp.com/?user=karxoo&theme=tokyonight&background=1a1b27&ring=2d6a4f&fire=40916c&currStreakNum=70e000&sideNums=b7efc5&currStreakLabel=2d6a4f&token=${GH_TOKEN}"
+          # Light - Switched to demolab domain
+          curl -o dist/streak-stats.svg "https://streak-stats.demolab.com/?user=karxoo&background=e5e7eb&border=d1d5db&stroke=cc7a67&ring=cc7a67&fire=cc7a67&currStreakNum=4b5563&sideNums=4b5563&currStreakLabel=cc7a67&sideLabels=6b7280&dates=9ca3af&hide_border=false"
+          
+          # Dark - Switched to demolab domain
+          curl -o dist/streak-stats-dark.svg "https://streak-stats.demolab.com/?user=karxoo&theme=tokyonight&background=1a1b27&ring=2d6a4f&fire=40916c&currStreakNum=70e000&sideNums=b7efc5&currStreakLabel=2d6a4f"
 
       # 3. Stats (Light & Dark)
       - name: Generate Main Stats SVG
