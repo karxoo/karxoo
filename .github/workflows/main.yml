@@ -2,8 +2,8 @@ name: Generate Assets
 
 on:
   schedule:
-    - cron: "0 0 * * *"
-  workflow_dispatch:
+    - cron: "0 0 * * *" # Runs every 24 hours
+  workflow_dispatch: # Allows manual run
 
 jobs:
   build:
@@ -28,10 +28,10 @@ jobs:
             dist/github-contribution-grid-snake.svg?color_snake=%23cc7a67&color_dots=%23e5e7eb,%23d4b483,%23c1666b,%23435058,%2348392a
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=%23cc7a67&color_dots=%231c1c1c,%23d4b483,%23c1666b,%23435058,%2348392a
 
-      # 2. Generate Streak Stats (Using cURL - No Docker errors!)
+      # 2. Generate Streak Stats (Using Token to bypass Rate Limits/Sad Face)
       - name: Generate Streak SVG
         run: |
-          curl -o dist/streak-stats.svg "https://github-readme-streak-stats.herokuapp.com/?user=karxoo&theme=catppuccin_mocha&hide_border=true&background=1e1e2e"
+          curl -o dist/streak-stats.svg "https://github-readme-streak-stats.herokuapp.com/?user=karxoo&theme=catppuccin_mocha&hide_border=true&background=1e1e2e&token=${{ secrets.GH_TOKEN }}"
 
       # 3. Generate Main GitHub Stats
       - name: Generate Main Stats SVG
@@ -51,7 +51,7 @@ jobs:
           path: dist/top-langs.svg
           token: ${{ secrets.GH_TOKEN }}
           
-      # 5. Push to Output Branch
+      # 5. Push EVERYTHING to the 'output' branch
       - name: Push to Output Branch
         uses: crazy-max/ghaction-github-pages@v3
         with:
