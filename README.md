@@ -57,20 +57,21 @@ I’m a **Software Developer** who specializes in crafting sleek, bug-free (most
 ---
 
 ### 📈 Proof of Work
-<table style="border: none; border-collapse: collapse;" width="100%">
+
+<table style="border: none; border-collapse: collapse; width: 100%;">
   <tr style="border: none;">
-    <td width="48%" align="center" style="border: none;">
+    <td width="48%" align="center" style="border: none; vertical-align: middle;">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/karxoo/karxoo/output/github-stats-dark.svg">
         <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/karxoo/karxoo/output/github-stats.svg">
         <img src="https://raw.githubusercontent.com/karxoo/karxoo/output/github-stats.svg" alt="karxoo's Stats" width="100%" />
       </picture>
     </td>
-    <td width="52%" align="center" style="border: none;">
+    <td width="52%" align="center" style="border: none; vertical-align: middle;">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/karxoo/karxoo/output/top-langs-dark.svg">
         <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/karxoo/karxoo/output/top-langs.svg">
-        <img src="https://raw.githubusercontent.com/karxoo/karxoo/output/top-langs.svg" alt="Top Langs" width="100%" />
+        <img src="https://raw.githubusercontent.com/karxoo/karxoo/output/top-langs.svg" alt="Top Langs" style="max-width: 100%; height: 80%;" />
       </picture>
     </td>
   </tr>
