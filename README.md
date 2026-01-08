@@ -57,20 +57,20 @@ I’m a **Software Developer** who specializes in crafting sleek, bug-free (most
 ---
 ### 📈 Proof of Work
 <table style="border: none; border-collapse: collapse;" width="100%">
-  <tr style="border: none;">
-    <td width="48%" align="center" style="border: none;">
-     <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=karxoo&show_icons=true&theme=gruvbox&bg_color=e5e7eb&title_color=48392a&text_color=435058&icon_color=c1666b" alt="karxoo's Stats" width="100%" />
-    </td>
-    <td width="52%" align="center" style="border: none;">
-      <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=karxoo&layout=compact&bg_color=e5e7eb&title_color=3d2b1f&text_color=435058&icon_color=cc7a67&hide_border=true&langs_count=5&card_width=400" alt="Top Langs" width="100%" />
-    </td>
-  </tr>
-</table> 
+  <tr style="border: none;">
+    <td width="48%" align="center" style="border: none;">
+      <img src="https://raw.githubusercontent.com/karxoo/karxoo/output/github-stats.svg" alt="karxoo's Stats" width="100%" />
+    </td>
+    <td width="52%" align="center" style="border: none;">
+      <img src="https://raw.githubusercontent.com/karxoo/karxoo/output/top-langs.svg" alt="Top Langs" width="100%" />
+    </td>
+  </tr>
+</table>
 
 ---
 ### 🔥 Streak: Don't break the chain!
 <p align="center">
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=karxoo&theme=catppuccin_mocha&hide_border=true" width="91%" />
+  <img src="https://raw.githubusercontent.com/karxoo/karxoo/output/streak-stats.svg" alt="GitHub Streak" />
 </p>
 
 ---
