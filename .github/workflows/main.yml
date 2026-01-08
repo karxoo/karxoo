@@ -59,7 +59,7 @@ jobs:
         uses: readme-tools/github-readme-stats-action@v1
         with:
           card: top-langs
-          options: username=karxoo&layout=compact&title_color=2d6a4f&text_color=1b4332&bg_color=e5e7eb&border_color=d1d5db&langs_count=5&hide=html,css
+          options: username=karxoo&layout=compact&title_color=2d6a4f&text_color=1b4332&bg_color=e5e7eb&border_color=d1d5db&langs_count=6&hide=html,css
           path: dist/top-langs.svg
           token: ${{ secrets.GH_TOKEN }}
 
@@ -67,7 +67,7 @@ jobs:
         uses: readme-tools/github-readme-stats-action@v1
         with:
           card: top-langs
-          options: username=karxoo&layout=compact&title_color=70e000&text_color=b7efc5&bg_color=1a1b27&border_color=2d6a4f&langs_count=5&hide=html,css
+          options: username=karxoo&layout=compact&title_color=70e000&text_color=b7efc5&bg_color=1a1b27&border_color=2d6a4f&langs_count=6&hide=html,css
           path: dist/top-langs-dark.svg
           token: ${{ secrets.GH_TOKEN }}
 
