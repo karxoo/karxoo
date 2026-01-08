@@ -1,4 +1,4 @@
-name: Generate Snake
+name: Generate Assets
 
 on:
   schedule:
@@ -9,18 +9,30 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # 1. Generate the Snake
       - name: Generate Snake SVG
         uses: Platane/snk@v3
         with:
           github_user_name: karxoo
           outputs: |
-            # Light Mode: Sand/Cream background with Desert Sunset tones
             dist/github-contribution-grid-snake.svg?color_snake=%23cc7a67&color_dots=%23e5e7eb,%23d4b483,%23c1666b,%23435058,%2348392a
-            
-            # Dark Mode: Dark Stone background (better for eyes in dark mode)
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=%23cc7a67&color_dots=%231c1c1c,%23d4b483,%23c1666b,%23435058,%2348392a
 
-      - name: Push Snake to Output Branch
+      # 2. NEW: Generate the Streak Stats (Catppuccin Mocha)
+      - name: Generate Streak SVG
+        uses: jaywcjlove/github-readme-streak-stats@main
+        with:
+          user: karxoo
+          theme: catppuccin_mocha
+          hide_border: true
+          background: 1e1e2e
+          output: dist/streak-stats.svg
+
+      # 3. Push EVERYTHING to the 'output' branch
+      - name: Push to Output Branch
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: output
