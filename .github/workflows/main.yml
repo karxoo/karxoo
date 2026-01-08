@@ -2,8 +2,8 @@ name: Generate Assets
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs every 24 hours
-  workflow_dispatch: # Allows manual run
+    - cron: "0 0 * * *"
+  workflow_dispatch:
 
 jobs:
   build:
@@ -15,11 +15,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # 0. Ensure the output directory exists
       - name: Create dist directory
         run: mkdir -p dist
 
-      # 1. Generate the Snake (Light & Dark)
       - name: Generate Snake SVG
         uses: Platane/snk@v3
         with:
@@ -28,20 +26,16 @@ jobs:
             dist/github-contribution-grid-snake.svg?color_snake=%23cc7a67&color_dots=%23e5e7eb,%23d4b483,%23c1666b,%23435058,%2348392a
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=%23cc7a67&color_dots=%231c1c1c,%23d4b483,%23c1666b,%23435058,%2348392a
 
-      # 2. Generate Streak SVGs (Light & Dark)
       - name: Generate Streak SVGs
         run: |
-          # Light
-          curl -o dist/streak-stats.svg "https://github-readme-streak-stats.herokuapp.com/?user=karxoo&background=e5e7eb&border=d1d5db&stroke=cc7a67&ring=cc7a67&fire=cc7a67&currStreakNum=4b5563&sideNums=4b5563&currStreakLabel=cc7a67&sideLabels=6b7280&dates=9ca3af&hide_border=false&token=${{ secrets.GH_TOKEN }}&date=$(date +%s)"
-          # Dark
-          curl -o dist/streak-stats-dark.svg "https://github-readme-streak-stats.herokuapp.com/?user=karxoo&background=0d1117&border=30363d&stroke=30363d&ring=39d353&fire=39d353&currStreakNum=c9d1d9&sideNums=c9d1d9&currStreakLabel=39d353&sideLabels=8b949e&dates=6e7681&hide_border=false&token=${{ secrets.GH_TOKEN }}&date=$(date +%s)")"
+          curl -o dist/streak-stats.svg "https://github-readme-streak-stats.herokuapp.com/?user=karxoo&background=e5e7eb&border=d1d5db&stroke=cc7a67&ring=cc7a67&fire=cc7a67&currStreakNum=4b5563&sideNums=4b5563&currStreakLabel=cc7a67&sideLabels=6b7280&dates=9ca3af&hide_border=false&token=${{ secrets.GH_TOKEN }}"
+          curl -o dist/streak-stats-dark.svg "https://github-readme-streak-stats.herokuapp.com/?user=karxoo&theme=tokyonight&background=1a1b27&ring=2d6a4f&fire=40916c&currStreakNum=70e000&sideNums=b7efc5&currStreakLabel=2d6a4f&token=${{ secrets.GH_TOKEN }}"
 
-      # 3. Generate Main GitHub Stats (Light & Dark)
       - name: Generate Main Stats SVG Light
         uses: readme-tools/github-readme-stats-action@v1
         with:
           card: stats
-          options: username=karxoo&show_icons=true&title_color=2d6a4f&text_color=1b4332&icon_color=40916c&bg_color=e5e7eb&border_color=d1d5db&hide_border=false
+          options: username=karxoo&show_icons=true&title_color=2d6a4f&text_color=1b4332&icon_color=40916c&bg_color=e5e7eb&border_color=d1d5db
           path: dist/github-stats.svg
           token: ${{ secrets.GH_TOKEN }}
 
@@ -49,16 +43,15 @@ jobs:
         uses: readme-tools/github-readme-stats-action@v1
         with:
           card: stats
-          options: username=karxoo&show_icons=true&title_color=39d353&text_color=c9d1d9&icon_color=39d353&bg_color=0d1117&border_color=30363d&hide_border=false
+          options: username=karxoo&show_icons=true&title_color=70e000&text_color=b7efc5&icon_color=40916c&bg_color=1a1b27&border_color=2d6a4f
           path: dist/github-stats-dark.svg
           token: ${{ secrets.GH_TOKEN }}
 
-      # 4. Generate Top Languages (Light & Dark)
       - name: Generate Top Langs SVG Light
         uses: readme-tools/github-readme-stats-action@v1
         with:
           card: top-langs
-          options: username=karxoo&layout=compact&title_color=2d6a4f&text_color=1b4332&bg_color=e5e7eb&border_color=d1d5db&hide_border=false&langs_count=6&hide=html,css
+          options: username=karxoo&layout=compact&title_color=2d6a4f&text_color=1b4332&bg_color=e5e7eb&border_color=d1d5db&langs_count=5&hide=html,css
           path: dist/top-langs.svg
           token: ${{ secrets.GH_TOKEN }}
 
@@ -66,11 +59,10 @@ jobs:
         uses: readme-tools/github-readme-stats-action@v1
         with:
           card: top-langs
-          options: username=karxoo&layout=compact&title_color=39d353&text_color=c9d1d9&bg_color=0d1117&border_color=30363d&hide_border=false&langs_count=6&hide=html,css
+          options: username=karxoo&layout=compact&title_color=70e000&text_color=b7efc5&bg_color=1a1b27&border_color=2d6a4f&langs_count=5&hide=html,css
           path: dist/top-langs-dark.svg
           token: ${{ secrets.GH_TOKEN }}
 
-      # 5. Push EVERYTHING to the 'output' branch
       - name: Push to Output Branch
         uses: crazy-max/ghaction-github-pages@v3
         with:
