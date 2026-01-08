@@ -28,20 +28,20 @@ jobs:
             dist/github-contribution-grid-snake.svg?color_snake=%23cc7a67&color_dots=%23e5e7eb,%23d4b483,%23c1666b,%23435058,%2348392a
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=%23cc7a67&color_dots=%231c1c1c,%23d4b483,%23c1666b,%23435058,%2348392a
 
-      # 2. Generate Streak Stats (Using Token to bypass Rate Limits/Sad Face)
+      # 2. Generate Streak SVG (Sandy Silver Edition)
       - name: Generate Streak SVG
         run: |
-          curl -o dist/streak-stats.svg "https://github-readme-streak-stats.herokuapp.com/?user=karxoo&theme=catppuccin_mocha&hide_border=true&background=1e1e2e&token=${{ secrets.GH_TOKEN }}"
+          curl -o dist/streak-stats.svg "https://github-readme-streak-stats.herokuapp.com/?user=karxoo&background=e5e7eb&border=d1d5db&stroke=cc7a67&ring=cc7a67&fire=cc7a67&currStreakNum=4b5563&sideNums=4b5563&currStreakLabel=cc7a67&sideLabels=6b7280&dates=9ca3af&hide_border=false&token=${{ secrets.GH_TOKEN }}&date=$(date +%s)"
 
-      # 3. Generate Main GitHub Stats
+      # 3. Generate Main GitHub Stats (Sandy Silver Edition)
       - name: Generate Main Stats SVG
         uses: readme-tools/github-readme-stats-action@v1
         with:
           card: stats
-          options: username=karxoo&show_icons=true&theme=catppuccin_mocha&hide_border=true
+          options: username=karxoo&show_icons=true&title_color=cc7a67&text_color=4b5563&icon_color=d4b483&bg_color=e5e7eb&border_color=d1d5db&hide_border=false
           path: dist/github-stats.svg
           token: ${{ secrets.GH_TOKEN }}
-
+          
       # 4. Generate Top Languages
       - name: Generate Top Langs SVG
         uses: readme-tools/github-readme-stats-action@v1
