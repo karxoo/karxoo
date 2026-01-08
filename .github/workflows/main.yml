@@ -38,17 +38,15 @@ jobs:
       # NEW: Cache Buster Step
       - name: Update README cache version and timestamp
         run: |
-          # 1. Generate Timestamp for Cache-Busting (e.g., 202601091235)
           TS=$(date +%Y%m%d%H%M)
-          
-          # 2. Generate Human Readable Time (e.g., Jan 09, 12:35 AM)
           TIMENOW=$(date +'%b %d, %I:%M %p')
           
-          # 3. Update all ?v= numbers for cache busting
-          sed -i "s/\?v=[0-9]*/?v=${TS}/g" README.md
+          # This updated regex finds "Last Updated: " followed by ANY characters 
+          # until the end of the line or the closing tag.
+          sed -i "s/Last Updated: .*/Last Updated: ${TIMENOW}<\/sub>/g" README.md
           
-          # 4. Update a specific 'Last Updated' text if you have one
-          sed -i "s/Last Updated: .*/Last Updated: ${TIMENOW}/g" README.md
+          # Updates the cache-buster version numbers
+          sed -i "s/\?v=[0-9]*/?v=${TS}/g" README.md
 
       # 3. Stats (Light & Dark)
       - name: Generate Main Stats SVG
