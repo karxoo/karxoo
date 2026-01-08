@@ -2,8 +2,8 @@ name: Generate Assets
 
 on:
   schedule:
-    - cron: "0 0 * * *"
-  workflow_dispatch:
+    - cron: "0 0 * * *" # Runs every 24 hours
+  workflow_dispatch: # Allows manual run
 
 jobs:
   build:
@@ -21,15 +21,16 @@ jobs:
             dist/github-contribution-grid-snake.svg?color_snake=%23cc7a67&color_dots=%23e5e7eb,%23d4b483,%23c1666b,%23435058,%2348392a
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=%23cc7a67&color_dots=%231c1c1c,%23d4b483,%23c1666b,%23435058,%2348392a
 
-      # 2. Generate the Streak Stats
+      # 2. Generate the Streak Stats (Fixed Repo Path)
       - name: Generate Streak SVG
-        uses: jaywcjlove/github-readme-streak-stats@main
+        uses: DenverCoder1/github-readme-streak-stats@main
         with:
-          user: karxoo
+          github_user: karxoo
           theme: catppuccin_mocha
           hide_border: true
           background: 1e1e2e
-          output: dist/streak-stats.svg
+          output_base: dist
+          output_filename: streak-stats.svg
 
       # 3. Generate Main GitHub Stats
       - name: Generate Main Stats SVG
@@ -38,7 +39,7 @@ jobs:
           card: stats
           options: username=karxoo&show_icons=true&theme=catppuccin_mocha&hide_border=true
           path: dist/github-stats.svg
-          token: ${{ secrets.GH_TOKEN }} # Using the PAT you created
+          token: ${{ secrets.GH_TOKEN }}
 
       # 4. Generate Top Languages
       - name: Generate Top Langs SVG
@@ -47,7 +48,7 @@ jobs:
           card: top-langs
           options: username=karxoo&layout=compact&theme=catppuccin_mocha&hide_border=true&langs_count=5
           path: dist/top-langs.svg
-          token: ${{ secrets.GH_TOKEN }} # Using the PAT you created
+          token: ${{ secrets.GH_TOKEN }}
           
       # 5. Push EVERYTHING to the 'output' branch
       - name: Push to Output Branch
