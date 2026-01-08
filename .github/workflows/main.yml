@@ -2,13 +2,12 @@ name: Generate Assets
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs every 24 hours
-  workflow_dispatch: # Allows manual run
+    - cron: "0 0 * * *"
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    # Explicitly grant permission to write to the repository
     permissions:
       contents: write
       
@@ -16,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # 0. Ensure the output directory exists
+      # Ensure the output directory exists
       - name: Create dist directory
         run: mkdir -p dist
 
@@ -29,13 +28,13 @@ jobs:
             dist/github-contribution-grid-snake.svg?color_snake=%23cc7a67&color_dots=%23e5e7eb,%23d4b483,%23c1666b,%23435058,%2348392a
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=%23cc7a67&color_dots=%231c1c1c,%23d4b483,%23c1666b,%23435058,%2348392a
 
-      # 2. Generate the Streak Stats (Docker syntax with output path)
+      # 2. Generate the Streak Stats (Using Absolute Workspace Path)
       - name: Generate Streak SVG
         uses: DenverCoder1/github-readme-streak-stats@main
         with:
-          args: --user=karxoo --theme=catppuccin_mocha --hide_border=true --background=1e1e2e --output=dist/streak-stats.svg
+          args: --user=karxoo --theme=catppuccin_mocha --hide_border=true --background=1e1e2e --output=${{ github.workspace }}/dist/streak-stats.svg
 
-      # 3. Generate Main GitHub Stats (Using GH_TOKEN for API access)
+      # 3. Generate Main GitHub Stats
       - name: Generate Main Stats SVG
         uses: readme-tools/github-readme-stats-action@v1
         with:
@@ -53,7 +52,7 @@ jobs:
           path: dist/top-langs.svg
           token: ${{ secrets.GH_TOKEN }}
           
-      # 5. Push EVERYTHING to the 'output' branch
+      # 5. Push to Output Branch
       - name: Push to Output Branch
         uses: crazy-max/ghaction-github-pages@v3
         with:
