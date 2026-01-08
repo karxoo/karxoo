@@ -32,11 +32,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          # Light - Switched to demolab domain
-          curl -o dist/streak-stats.svg "https://streak-stats.demolab.com/?user=karxoo&background=e5e7eb&border=d1d5db&stroke=cc7a67&ring=cc7a67&fire=cc7a67&currStreakNum=4b5563&sideNums=4b5563&currStreakLabel=cc7a67&sideLabels=6b7280&dates=9ca3af&hide_border=false"
+          # Light - Green border (2d6a4f)
+          curl -o dist/streak-stats.svg "https://streak-stats.demolab.com/?user=karxoo&background=e5e7eb&border=2d6a4f&stroke=cc7a67&ring=cc7a67&fire=cc7a67&currStreakNum=4b5563&sideNums=4b5563&currStreakLabel=cc7a67&sideLabels=6b7280&dates=9ca3af&hide_border=false"
           
-          # Dark - Switched to demolab domain
-          curl -o dist/streak-stats-dark.svg "https://streak-stats.demolab.com/?user=karxoo&theme=tokyonight&background=1a1b27&ring=2d6a4f&fire=40916c&currStreakNum=70e000&sideNums=b7efc5&currStreakLabel=2d6a4f"
+          # Dark - Green border (2d6a4f)
+          curl -o dist/streak-stats-dark.svg "https://streak-stats.demolab.com/?user=karxoo&theme=tokyonight&background=1a1b27&border=2d6a4f&ring=2d6a4f&fire=40916c&currStreakNum=70e000&sideNums=b7efc5&currStreakLabel=2d6a4f&hide_border=false"
 
       # 3. Stats (Light & Dark)
       - name: Generate Main Stats SVG
