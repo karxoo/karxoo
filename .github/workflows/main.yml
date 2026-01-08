@@ -30,8 +30,11 @@ jobs:
       # 2. Streak SVGs (Fixed URL & Green Border)
       - name: Generate Streak SVGs
         run: |
-          # Remove 'env' and just run a public fetch
+          # Light Mode
           curl -o dist/streak-stats.svg "https://streak-stats.demolab.com/?user=karxoo&background=e5e7eb&border=2d6a4f&stroke=cc7a67&ring=cc7a67&fire=cc7a67&currStreakNum=4b5563&sideNums=4b5563&currStreakLabel=cc7a67&sideLabels=6b7280&dates=9ca3af&hide_border=false&cache=false"
+          
+          # Dark Mode
+          curl -o dist/streak-stats-dark.svg "https://streak-stats.demolab.com/?user=karxoo&theme=tokyonight&background=1a1b27&border=2d6a4f&ring=2d6a4f&fire=40916c&currStreakNum=70e000&sideNums=b7efc5&currStreakLabel=2d6a4f&hide_border=false&cache=false"
       
       # 3. Stats (Light & Dark)
       - name: Generate Main Stats SVG
@@ -70,8 +73,8 @@ jobs:
       # 5. Cache Buster & Timestamp Step
       - name: Update README cache version and timestamp
         run: |
-          # Set timezone to Malaysia
-          export TZ="Asia/Kuala Lumpur"
+          # FIX: Added the underscore for the timezone
+          export TZ="Asia/Kuala_Lumpur"
           
           # Generate variables
           TS=$(date +%Y%m%d%H%M)
@@ -83,13 +86,14 @@ jobs:
           # 2. Update all ?v= numbers for cache busting
           sed -i "s/\?v=[0-9]*/?v=${TS}/g" README.md
 
-      # 6. CRITICAL: Commit the README changes back to main branch
-      - name: Commit README changes
+      # 6. CRITICAL: Save these changes back to your profile
+      - name: Commit and Push Changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add README.md
-          git commit -m "chore: update profile metrics and timestamp" || echo "No changes to commit"
+          # Only commit if something actually changed
+          git commit -m "chore: update timestamp to ${TIMENOW} [skip ci]" || echo "No changes to commit"
           git push origin main
 
       # 7. Push Assets to Output Branch
