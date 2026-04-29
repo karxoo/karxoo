@@ -82,12 +82,12 @@ I’m a **Software Developer** who specializes in crafting sleek, bug-free (most
 ### 🔥 Streak: Don't break the chain!
 <p align="center">
   <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/karxoo/karxoo/output/streak-stats-dark.svg?v=202604281000">
-<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/karxoo/karxoo/output/streak-stats.svg?v=202604281000">
-<img src="https://raw.githubusercontent.com/karxoo/karxoo/output/streak-stats.svg?v=202604281000" alt="GitHub Streak" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/karxoo/karxoo/output/streak-stats-dark.svg?v=202604291002">
+<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/karxoo/karxoo/output/streak-stats.svg?v=202604291002">
+<img src="https://raw.githubusercontent.com/karxoo/karxoo/output/streak-stats.svg?v=202604291002" alt="GitHub Streak" />
   </picture>
   <br/>
-  <sub>Last Updated: Apr 28, 10:00 AM</sub>
+  <sub>Last Updated: Apr 29, 10:02 AM</sub>
 </p>
 
 ---
